@@ -1,0 +1,25 @@
+.layout{
+    display: grid;
+    grid-template-columns: 1fr 2fr 5fr 1fr;
+    grid-template-rows: 50px 1fr;
+    gap: 20px 30px;
+}
+.header{
+    background: #fff;
+    padding: 10px;
+    grid-column: 1/5;
+    grid-area: "h";
+}
+.logo{
+    margin-left: 100px;
+}
+.sidebar{
+    background: #fff;
+    border-radius: 3px;
+    grid-column: 2/3;
+}
+.main{
+    background: #fff;
+    border-radius: 3px;
+    grid-column: 3/4;
+}

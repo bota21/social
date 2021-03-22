@@ -1,0 +1,18 @@
+.menu{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+.link{
+    padding: 10px;
+    text-decoration: none;
+    color: #000;
+}
+.link:hover{
+    text-decoration: none;
+    color: #000;
+}
+.link.active{
+    background: rgb(108, 158, 108);
+    color: #fff;
+}
