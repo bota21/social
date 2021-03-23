@@ -6,7 +6,6 @@ const Layout = ({ children }) => {
     <div className='layout'>
       <div className='header'>
         <a href='/' className='logo'>
-          LOGO
         </a>
       </div>
       <div className='sidebar'>

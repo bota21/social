@@ -1,3 +1,39 @@
-.wrapper{
-    display: flex;
+.profile{
+  padding: 10px 20px;
+}
+.profile_wrapper {
+  display: flex;
+}
+.main_wrapper{
+  padding-top: 30px;
+}
+.main_wrapper h3 span{
+font-weight: 400;
+font-size: 20px;
+margin-left: 20px;
+}
+.avatar{
+  width: 200px;
+  height: 200px;
+  border-radius: 3px;
+  margin-right: 20px;
+}
+.profile_img_wrapper{
+  display: flex;
+}
+.profile_img_wrapper img{
+  width: 100px;
+  margin: 5px 15px;
+}
+.form{
+  margin: 20px auto;
+}
+.input{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5px;
+}
+.form-control{
+  width: 80%;
 }

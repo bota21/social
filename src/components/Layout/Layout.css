@@ -6,12 +6,17 @@
 }
 .header{
     background: #fff;
-    padding: 10px;
+    padding: 5px 0 10px 10px;
     grid-column: 1/5;
     grid-area: "h";
 }
 .logo{
-    margin-left: 100px;
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-left: 126px;
+    /* margin: 15px 0 15px 126px; */
+    background: url('../../assets/logo') 50% no-repeat;
 }
 .sidebar{
     background: #fff;

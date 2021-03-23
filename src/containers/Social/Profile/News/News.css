@@ -1,0 +1,16 @@
+.news_wrapper {
+  display: flex;
+  align-items: center;
+}
+.news_wrapper_title {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.news_wrapper img {
+  width: 60px;
+  height: 60px;
+}
+.news_wrapper_title h6{
+    margin-top: 25px;
+}
