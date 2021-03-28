@@ -6,11 +6,13 @@ import "./Profile.css";
 
 const Profile = () => {
   const [profile, setProfile] = useState([]);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
+  
   const changeValue = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setInputValue({ ...inputValue, [name]: value });
+  
   };
 
   useEffect(() => {
@@ -34,22 +36,30 @@ const Profile = () => {
     fetchData();
   }, [profile]);
 
-  const renderNews = profile.map((item) => {
-    return (
-      <News key={item.id} title={item.profile} msg={item.msg} img={item.img} />
-    );
-  });
+  const deletePost = (id) => {
+    const fetchData = async () => {
+        try {         
+          await axiosProfile.delete(id + ".json");
+        } catch (e) {
+          console.error(e);
+        }
+      };
+      fetchData();
+  };
 
   const postMsg = (e) => {
     e.preventDefault();
     const fetchData = async () => {
-      try {
-        const data = {
-          profile: "John Doe",
-          img: "https://bota21.github.io/images/img/avatar9.png",
-          msg: inputValue.news,
-        };
-        await axiosProfile.post(".json", data);
+      try {        
+        if(inputValue !== undefined || inputValue.news !== ' ') {
+          const data = {
+            profile: "John Doe",
+            img: "https://bota21.github.io/images/img/avatar9.png",
+            msg: inputValue.news,
+          };
+          await axiosProfile.post(".json", data);
+          setInputValue({news: ''});
+        } else return        
       } catch (e) {
         console.error(e);
       }
@@ -93,11 +103,11 @@ const Profile = () => {
         </p>
       </div>
       <div className='profile_img_wrapper'>
-        <img src='https://bota21.github.io/images/img/avatar9.png' alt='' />
-        <img src='https://bota21.github.io/images/img/avatar9.png' alt='' />
-        <img src='https://bota21.github.io/images/img/avatar9.png' alt='' />
-        <img src='https://bota21.github.io/images/img/avatar9.png' alt='' />
-        <img src='https://bota21.github.io/images/img/avatar9.png' alt='' />
+        <img src='https://bota21.github.io/images/img/avatar9.png' alt='' className='profile_img'/>
+        <img src='https://bota21.github.io/images/img/avatar9.png' alt='' className='profile_img' />
+        <img src='https://bota21.github.io/images/img/avatar9.png' alt='' className='profile_img' />
+        <img src='https://bota21.github.io/images/img/avatar9.png' alt='' className='profile_img' />
+        <img src='https://bota21.github.io/images/img/avatar9.png' alt='' className='profile_img' />
       </div>
       <Form onSubmit={postMsg}>
         <div className='form'>
@@ -106,6 +116,7 @@ const Profile = () => {
               placeholder='Add news'
               onChange={changeValue}
               name='news'
+              value={inputValue.news}
             />
             <Button variant='success' type='submit'>
               Submit
@@ -113,7 +124,10 @@ const Profile = () => {
           </Row>
         </div>
       </Form>
-      {renderNews}
+     <News
+     news={profile}
+     remove={deletePost}
+     />
     </div>
   );
 };

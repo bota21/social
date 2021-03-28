@@ -1,14 +1,24 @@
+import { Button } from "react-bootstrap";
 import "./News.css";
 
-const News = ({ img, title, msg }) => {
+const News = ({ news, remove }) => {
   return (
-    <div className='news_wrapper'>
-      <img src={img} alt={title}/>
-      <div className='news_wrapper_title'>
-        <h6>{title}</h6>
-        <p>{msg}</p>
-      </div>
-    </div>
+    <>
+      {news.map((item) => {
+        return (
+          <div className='news_wrapper' key={item.id}>
+            <img src={item.img} alt={item.title} />
+            <div className='news_wrapper_title'>
+              <h6>{item.title}</h6>
+              <p>{item.msg}</p>
+            </div>
+            <Button variant='danger' size='sm' onClick={() => remove(item.id)}>
+              Delete
+            </Button>
+          </div>
+        );
+      })}
+    </>
   );
 };
 

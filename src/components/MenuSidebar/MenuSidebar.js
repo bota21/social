@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
-import './Menu.css'
+import './MenuSidebar.css'
 
-const Menu = () => {
+const MenuSidebar = () => {
   return (
     <nav className='menu'>
       <NavLink to='/profile' className='link' activeClassName='active'>Profile</NavLink>
@@ -11,4 +11,4 @@ const Menu = () => {
     </nav>
   );
 };
-export default Menu;
+export default MenuSidebar;
